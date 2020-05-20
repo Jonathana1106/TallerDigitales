@@ -10,3 +10,11 @@ Lab2/incremental_db/compiled_partitions/
 Lab2/incremental_db/
 
 Lab3/db/
+
+Lab3/incremental_db/compiled_partitions/
+
+Lab3/output_files/
+
+*.rpt
+
+Lab3/simulation/modelsim/
