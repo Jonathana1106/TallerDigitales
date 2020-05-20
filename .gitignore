@@ -1,0 +1,10 @@
+
+Lab2/db/
+
+Lab2/output_files/
+
+*.bak
+
+Lab2/incremental_db/compiled_partitions/
+
+Lab2/incremental_db/
