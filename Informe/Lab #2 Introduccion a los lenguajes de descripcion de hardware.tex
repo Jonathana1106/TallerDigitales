@@ -1,0 +1,114 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{cite}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+	
+	\title{Laboratorio 2: Introducción a los lenguajes de descripción de hardware}
+	\author{Jonathan, Mariano}
+	\date{Marzo 2021}
+	
+	\newcommand{\email}[1]{\href{mailto:#1}{#1}}
+	
+	\author{
+		\IEEEauthorblockN
+		{
+			Jonathan Guzmán Araya,
+			Mariano Muñoz Masís
+		}
+		\IEEEauthorblockA{\\Instituto Tecnológico de Costa Rica}
+		\IEEEauthorblockA{\\Área Académica Ingeniería en Computadores}
+		
+		\IEEEauthorblockA{\email{jonathana1196@gmail.com}}
+		\IEEEauthorblockA{\email{marianomm1301@gmail.com}}
+	}
+	
+	% The paper headers
+	\markboth{Laboratorio Taller de Diseño Digital, Semestre I~2021}%
+	{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+	
+	
+	% make the title area
+	\maketitle
+	
+	% As a general rule, do not put math, special symbols or citations
+	% in the abstract or keywords.
+	\begin{abstract}
+		Falta
+	\end{abstract}
+	
+	% Note that keywords are not normally used for peerreview papers.
+	\begin{IEEEkeywords}
+		Falta
+	\end{IEEEkeywords}
+	
+	\IEEEpeerreviewmaketitle
+	
+	\section{Introducción}
+	
+	Los lenguajes de descripción de hardware (HDL) son herramientas extremadamente importantes para los diseñadores digitales modernos. Una vez que haya aprendido SystemVerilog o VHDL, podrá especificar sistemas digitales mucho más rápido que si tuviera que dibujar los esquemas completos. El ciclo de depuración también suele ser mucho más rápido, porque las modificaciones requieren cambios de código en lugar de un complicado recableado de esquemas. Sin embargo, el ciclo de depuración puede ser mucho más largo con HDL si no tiene una buena idea del hardware que implica su código. Los HDL se utilizan tanto para simulación como para síntesis. La simulación lógica es una forma poderosa de probar un sistema en una computadora antes de convertirlo en hardware. Los simuladores le permiten verificar los valores de las señales dentro de su sistema que podrían ser imposibles de medir en una pieza física de hardware \cite{harris2010digital}.
+	Un bloque de hardware que posea entradas y salidas es llamado módulo. Una compuerta AND, un multiplexor y un circuito de prioridad son todos ejemplos de módulos de hardware. Existen dos estilos generales en los que se describen la funcionalidad de un módulo, estos son de comportamiento y estructurales.
+	
+	\subsection{Modelo de comportamiento}
+	Los modelos de comportamiento se utilizan ara describir el comportamiento del sistema en su totalidad, principalmente se tiene el \emph{Modelo de Fujo de Datos}, que modela el procesamiento de los datos del sistema, y el \emph{Modelo de Máquinas de Estado}, que modelan el sistema en función a eventos que recibe el sistema. Un ejemplo para un módulo de comportamiento se tienen una compuerta AND, la cual dependiendo de las entradas dará una salida, si cualquiera de las dos entradas es un emph{0}, la salida siempre será un \emph{0},  pero cuando las dos entradas son un \emph{1} la salida será un \emph{1} lógico.
+	
+	\subsection{Modelo de Estructura}
+	El Modelo de Estructura sirve para explicar los diferentes tipos de objetos de un sistema, visto desde el punto de vista de Software tenemos el \emph{Diagrama de Clases}, básico para la construcción de cualquier programa, de la misma manera se debe modelar los circuitos electrónicos, aplicando el concepto de Diseño Modular.
+	Un ejemplo de esto es la construcción de un sumador completo de de \emph{1 bit}, el cual por lo general se compone de varias compuertas \emph{XOR} para la suma y de \emph{AND} y \emph{OR} para el acarreo.
+		
+	\vspace{4mm}
+	
+	Un proceso importante en el uso de HDL es la síntesis lógica. Las raíces de este proceso se remontan al tratamiento de la lógica por George Boole, en lo que ahora se denomina álgebra booleana. En los primeros días, el diseño lógico implicaba manipular las representaciones de tablas de verdad como mapas de Karnaugh.
+	Sin embargo, la evolución de componentes lógicos discretos a matrices lógicas programables aceleró la necesidad de la automatización de la síntesis lógica. 
+	La síntesis lógica e un proceso mediante el cual una especificación abstracta del comportamiento deseado de un circuito (código HDL), normalmente a nivel de transferencia de registro (RTL), se convierte en en una implementación de diseño en términos de compuertas lógicas, normalmente mediante un programa informático llamado herramienta de síntesis.
+	Por lo que se puede decir que la síntensis lógica es un aspecto de la automatización del diseño electrónico.
+		
+	\vspace{4mm}
+	
+	Las FPGAs son el acrónimo para Field Programmable Gate Array y es una serie de dispositivos basados en semiconductores a base de matrices de Bloques Lógicos Configurables, su principal característica es que pueden ser reprogramados para un trabajo en específico \cite{Lopez2020}. Los principales componentes que posee la FPGA son terminales, Buffers, Flips – Flops, Tablas de búsqueda, Bloques de memoria, Bloques dedicados de Multiplicación, Transceptores para transmisión serie de muy alta velocidad, procesador en hardware embebido, etc \cite{Sisterna}.
+	
+	\vspace{4mm}
+	
+	Falta la 4ta pregunta
+	
+	\vspace{4mm}
+	
+	El mundo actual evoluciona alrededor de la tecnología y las ventajas que esta conlleva, por lo que se depende en gran medida del crecimiento y mejora de esta para producir comodidad y satisfacción a nuestras vidas, ya sea desde el punto de vista personal o industrial (empresarial). Los dispositivos FPGA juegan un papel importante en esta faceta, por lo que algunas de sus aplicaciones más comunes son las que se encuentran en los siguientes campos de interés:
+	
+	\begin{itemize}
+		\item Procesamiento de vídeos e imágenes
+		\item Telecomunicaciones y comunicación de datos
+		\item Servidor y nube 
+		\item Defensa y espacio
+		\item Científico y médico
+	\end{itemize}
+
+	Se utiliza con frecuencia y de forma extensiva en los sistemas de comunicación para mejorar la capacidad de la red, la cobertura y la calidad del servicio, al mismo tiempo que se reduce la latencia y los retrasos, especialmente cuando se trata de manipulación de datos \cite{HardwareBee}. 
+	
+	Intel y Xinlinx con ayuda de las FPGA han ido abriendo nichos en aplicaciones de centros de datos donde el bajo consumo de energía, el alto rendimiento y la capacidad de configuración pueden superar los desafíos de programación \cite{Freund2018}.
+	
+	La industria automotriz utiliza sistemas electrónicos cada vez más complejos para ofrecer mayor seguridad y eficiencia al conductor. Sin embargo es difícil para las unidades de control (ECU) basadas en CPUy GPU mantenerse al día con la electrónica de consumo, debido a los largos ciclos de desarrollo de chips y los rigurosos estándares de confiabilidad y calidad aplicados a la industria automotriz. Es por ello que los arreglos de puertas programables (FPGA) pueden desempeñar un papel importante para llenar este vacío al proporcionar rendimiento y flexibilidad de vanguardia a los arquitectos de sistemas para personalizar sus proyectos con una estructura de circuito electrónico flexible (programable) \cite{Emilio2017}.
+	
+	
+	\section{Sistema desarrollado y resultados}
+	
+	
+	
+	\section{Análisis de resultados}
+	
+	
+	
+	\section{Conclusiones}
+	
+	\section{Bibliografía}
+	
+	\bibliographystyle{IEEEtran}
+	\bibliography{myref}
+	
+\end{document}
