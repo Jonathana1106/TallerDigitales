@@ -7,7 +7,12 @@ module counterPNBFPGA(input logic clk, reset,
                       output logic [6:0] seg4, 
                       output logic [6:0] seg5);
 							 
-	assign seg5 = 7'b0000110;						 
+	assign seg5 = 7'b0000110;
+	assign seg4 = 7'b1001100;
+	assign seg3 = 7'b1001100;
+	assign seg2 = 7'b1000000;
+	assign seg1 = 7'b1001100;
+	assign seg0 = 7'b0010100;
 	
 
     /**

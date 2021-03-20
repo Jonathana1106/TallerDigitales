@@ -38,8 +38,8 @@
 
 
 set_global_assignment -name FAMILY "Cyclone V"
-set_global_assignment -name DEVICE 5CSEMA6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY counterTB
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY counterPNBFPGA
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:50:20  MARCH 16, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -57,8 +57,8 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name SYSTEMVERILOG_FILE counterPNB.sv
 set_global_assignment -name SYSTEMVERILOG_FILE counterTB.sv
 set_global_assignment -name SYSTEMVERILOG_FILE counterPNBFPGA.sv
-set_location_assignment PIN_AB12 -to reset
-set_location_assignment PIN_AC12 -to clk
+set_location_assignment PIN_AC12 -to reset
+set_location_assignment PIN_AA14 -to clk
 set_location_assignment PIN_V25 -to seg5[0]
 set_location_assignment PIN_AA28 -to seg5[1]
 set_location_assignment PIN_Y27 -to seg5[2]
