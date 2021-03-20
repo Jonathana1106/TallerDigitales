@@ -46,7 +46,8 @@
 *.qws
 *.rpt
 *.smsg
-*.sof
+#*.sof
+*.sld
 *.sopc_builder
 *.summary
 *.tcl
@@ -58,6 +59,7 @@
 
 # ignore Quartus II generated folders
 */db/
+#*/output_files/
 */incremental_db/
 */simulation/
 */timing/
@@ -66,5 +68,7 @@
 incremental_db/
 /simulation/modelsim/
 db/
+Problema1/output_files/
 _output_files/
+output_files/
 PLLJ_PLLSPE_INFO.txt
