@@ -43,15 +43,14 @@
 	% As a general rule, do not put math, special symbols or citations
 	% in the abstract or keywords.
 	\begin{abstract}
-		Este laboratorio sera.
+
 	\end{abstract}
 	% Note that keywords are not normally used for peerreview papers.
 	\begin{IEEEkeywords}
-		A, B, C
+		ALU, compuertas lógicas, flip-flops, microprocesadores
 	\end{IEEEkeywords}
 	
-	\section{Introducción}
-	
+	\section{Introducción}	
 	Los circuitos combinacionales son aquellos en los que las salidas solo dependen solamente de las entradas, y no de ningún tipo de sincronización con señales de reloj, esto hace que los sistemas combinacionales sean generalmente rápidos. En sistemas digitales complejos, como los microprocesadores, los circuitos de lógica combinacional desempeñan un papel fundamental. La arquitectura de un microprocesador es como la que se observa en la Figura \ref{fig:microprocesador}.
 	
 	\begin{figure}[hbtp]
@@ -60,30 +59,38 @@
 		\caption{Arquitectura básica de un microprocesador \cite{Gonzalez2017}}
 		\label{fig:microprocesador}
 	\end{figure}
-
-	Una función esencial de muchas computadoras (microprocesadores) y calculadoras es la realización de operaciones lógicas y aritméticas. Estas operaciones se efectúan en la unidad aritmética-lógica de una computadora, donde se combinan compuertas lógicas y flip-flops de manera que puedan sumar, restar, multiplicar y dividir números binarios \cite{Tocci2007}. Además de los operadores lógicos, la ALU cuenta con una serie de registros para almacenar los datos y bits de información sobre los resultados, también llamados banderas \cite{Garcia}. El símbolo de una ALU es como el de la Figura \ref{fig:simboloalu}.
+	
+	Una función esencial de muchas computadoras (microprocesadores) y calculadoras es la realización de operaciones lógicas y aritméticas. Estas operaciones se efectúan en la unidad aritmética-lógica de una computadora, donde se combinan compuertas lógicas y flip-flops de manera que puedan sumar, restar, multiplicar y dividir números binarios \cite{Tocci2007}. El símbolo de una ALU es como el de la Figura \ref{fig:simboloalu}.
 	
 	\begin{figure}[!htb]
 		\centering
 		\includegraphics[scale = 0.5]{img/simboloalu.png}
-		\caption{Símbolo ALU citar}
+		\caption{Símbolo ALU \cite{Garcia}}
 		\label{fig:simboloalu}
 	\end{figure}
+	
+	Además de los operadores lógicos, la ALU cuenta con una serie de registros para almacenar los datos y bits de información sobre los resultados, también llamados banderas \cite{Garcia}, las banderas más comunes en una ALU son: $Z$, $C$, $V$, $N$.
+	\begin{itemize}
+		\item Zero flag: usada para determinar si dos valores son iguales, generalmente se usa una resta, y se revisa si el resultado es cero, si es así, esta bandera se enciende.
+		\item Overflow flag: usada para determinar si el resultado de una operación (usualmente suma o multiplicación), tiene un tamaño superior al máximo representable, o inferior al mínimo representable en la ALU, es posible que existan como banderas separadas.
+		\item Negative flag: usada para determinar si el resultado de una resta es menor a cero
+		\item Carry/Borrow flag: Esta bandera indica cuando una operación  resulta en un valor más largo del cual el acumulador puede representar o menor del cual el acumulador puede representar.
+	\end{itemize}
 	
 	La ALU es simplemente un operador, es decir solo realiza operaciones, esta no toma decisiones, acepta datos binarios que están almacenados en la memoria y ejecuta operaciones con estos datos, de acuerdo a las instrucciones que vienen de la unidad de control.
 	
 	Para realizar operaciones lógicas la ALU utiliza compuertas lógicas como:
 	
 	\begin{itemize}
-		\item NOT: La Figura \ref{fig:NOT} muestra el símbolo para un circuito NOT, al cual se le conoce más comúnmente como INVERSOR, el INVERSOR afecta a una señal de entrada. Invierte (complementa) la señal de entrada en todos los puntos de la forma de onda, por lo que siempre que la entrada $= 0$, la salida $= 1$, y viceversa \cite{Tocci2007}.
+		\item NOT: La Figura \ref{fig:NOT} muestra el símbolo para un circuito NOT, al cual se le conoce más comúnmente como INVERSOR, el inversor afecta a una señal de entrada. Invierte (complementa) la señal de entrada en todos los puntos de la forma de onda, por lo que siempre que la $entrada = 0$, la $salida = 1$, y viceversa \cite{Tocci2007}.
 		
-		\begin{figure}[!htb]
+		\begin{figure}
 			\centering
-			\includegraphics[scale = 0.35]{img/NOT.png}
-			\caption{Compuerta NOT y su representación en álgebra de Boole \cite{logicbus}}
+			\includegraphics[scale = 0.5]{img/NOT.png}
+			\caption{Compuerta NOT y su representación en álgebra de Boole \cite{Tocci2007}}
 			\label{fig:NOT}
 		\end{figure}
-	
+		
 		\begin{table}[!htb]
 			\centering
 			\begin{tabular}{|c|c|}
@@ -105,10 +112,10 @@
 		\begin{figure}[!htb]
 			\centering
 			\includegraphics[scale = 0.3]{img/AND.png}
-			\caption{Compuerta AND y su representación en álgebra de Boole \cite{logicbus}}
+			\caption{Compuerta AND y su representación en álgebra de Boole \cite{Tocci2007}}
 			\label{fig:AND}
 		\end{figure}
-	
+		
 		\begin{table}[!htb]
 			\centering
 			\begin{tabular}{|c|c|c|}
@@ -134,10 +141,10 @@
 		\begin{figure}[!htb]
 			\centering
 			\includegraphics[scale = 0.35]{img/OR.png}
-			\caption{Compuerta OR y su representación en álgebra de Boole \cite{logicbus}}
+			\caption{Compuerta OR y su representación en álgebra de Boole \cite{Tocci2007}}
 			\label{fig:OR}
 		\end{figure}
-	
+		
 		\begin{table}[!htb]
 			\centering
 			\begin{tabular}{|c|c|c|}
@@ -158,15 +165,15 @@
 			\label{tab:OR}
 		\end{table}
 		
-		\item XOR: También llamada OR exclusiva, esta actúa como una suma binaria de un dígito cada uno y el resultado de la suma seria la salida. Otra manera de verlo es que con valores de entrada igual el estado de salida es 0 y con valores de entrada diferente, la salida será 1 \cite{logicbus}.
+		\item XOR: También llamada OR exclusiva, esta actúa como una suma binaria de un dígito cada uno y el resultado de la suma seria la salida. Otra manera de verlo es que con valores de entrada igual el estado de salida es 0 y con valores de entrada diferente, la salida será 1.
 		
 		\begin{figure}[!htb]
 			\centering
 			\includegraphics[scale = 0.4]{img/XOR.png}
-			\caption{Compuerta XOR y su representación en álgebra de Boole \cite{logicbus}}
+			\caption{Compuerta XOR y su representación en álgebra de Boole \cite{Tocci2007}}
 			\label{fig:XOR}
 		\end{figure}
-	
+		
 		\begin{table}[!htb]
 			\centering
 			\begin{tabular}{|c|c|c|}
@@ -188,7 +195,6 @@
 		\end{table}
 		
 	\end{itemize}
-	
 	
 	\section{Conclusiones}
 	
