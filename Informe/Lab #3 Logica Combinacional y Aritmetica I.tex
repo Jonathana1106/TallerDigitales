@@ -82,7 +82,7 @@
 	Para realizar operaciones lógicas la ALU utiliza compuertas lógicas como:
 	
 	\begin{itemize}
-		\item NOT: La Figura \ref{fig:NOT} muestra el símbolo para un circuito NOT, al cual se le conoce más comúnmente como INVERSOR, el inversor afecta a una señal de entrada. Invierte (complementa) la señal de entrada en todos los puntos de la forma de onda, por lo que siempre que la $entrada = 0$, la $salida = 1$, y viceversa \cite{Tocci2007}.
+		\item NOT: La Figura \ref{fig:NOT} muestra el símbolo para un circuito NOT, la operación NOT cambia de un nivel lógico al nivel lógico opuesto. Cuando la entrada está a nivel ALTO (1), la salida se pone a nivel BAJO (0). Cuando la entrada está a nivel BAJO, la salida se pone a nivel ALTO \cite{Floyd2006}.
 		
 		\begin{figure}
 			\centering
@@ -107,7 +107,7 @@
 			\label{tab:NOT}
 		\end{table}
 		
-		\item AND: La Figura \ref{fig:AND} muestra el símbolo lógico para una compuerta AND de dos entradas. La salida de la compuerta AND es igual al producto AND de las entradas lógicas; es decir, $x=AB$. En otras palabras, la compuerta AND es un circuito que opera de manera que su salida esté en ALTO sólo cuando todas sus entradas se encuentren en ALTO. Para todos los demás casos, la salida de la compuerta AND estará en BAJO \cite{Tocci2007}.
+		\item AND: La Figura \ref{fig:AND} muestra el símbolo lógico para una compuerta AND de dos entradas. La operación AND genera un nivel ALTO sólo cuando todas las entradas están a nivel ALTO, para el caso de dos entradas. Cuando una entrada está a nivel ALTO y la otra entrada está a nivel ALTO, la salida se pone a nivel ALTO. Cuando cualquiera de las entradas o todas ellas están a nivel BAJO, la salida se pone a nivel BAJO \cite{Floyd2006}.
 		
 		\begin{figure}[!htb]
 			\centering
@@ -136,7 +136,8 @@
 			\label{tab:AND}
 		\end{table}
 		
-		\item OR: La Figura \ref{fig:OR} muestra el símbolo lógico para una compuerta OR de dos entradas. Las entradas A y B son niveles lógicos de voltaje y la salida $x$ es un nivel lógico de voltaje cuyo valor es el resultado de la operación OR sobre A y B; es decir, $x = A + B$. En otras palabras, la compuerta OR opera de manera que su salida esté en ALTO, 1 lógico, si cualquiera de las entradas A o B o ambas se encuentran en el nivel 1 lógico. La salida de la compuerta OR estará en BAJO, 0 lógico, sólo si todas sus entradas están en 0 lógico \cite{Tocci2007}.
+		\item OR: La Figura \ref{fig:OR} muestra el símbolo lógico para una compuerta OR de dos entradas. La operación OR genera un nivel ALTO cuando una o más entradas están a nivel ALTO, para el caso de dos entradas. Cuando una de las entradas está a nivel ALTO o ambas entradas
+		están a nivel ALTO, la salida es un nivel ALTO. Cuando ambas entradas están a nivel BAJO, la salida será un nivel BAJO \cite{Floyd2006}.
 		
 		\begin{figure}[!htb]
 			\centering
@@ -165,7 +166,7 @@
 			\label{tab:OR}
 		\end{table}
 		
-		\item XOR: También llamada OR exclusiva, esta actúa como una suma binaria de un dígito cada uno y el resultado de la suma seria la salida. Otra manera de verlo es que con valores de entrada igual el estado de salida es 0 y con valores de entrada diferente, la salida será 1.
+		\item XOR: La Figura \ref{fig:XOR} muestra el símbolo lógico para una compuerta XOR de dos entradas. En una compuerta OR-exclusiva, la salida X es un nivel ALTO si la entrada A está a nivel BAJO y la entrada B está a nivel ALTO; o si la entrada A está a nivel ALTO y la entrada B está a nivel BAJO; X es un nivel BAJO si tanto A como B están a nivel ALTO o BAJO \cite{Floyd2006}.
 		
 		\begin{figure}[!htb]
 			\centering
@@ -193,8 +194,60 @@
 			\caption{Tabla de verdad de la compuerta XOR}
 			\label{tab:XOR}
 		\end{table}
-		
 	\end{itemize}
+	
+	
+	
+	Uno de los problemas más desafiantes en el diseño de circuitos es el tiempo, hacer que un circuito funcione rápido. Una salida necesita tiempo para cambiar en respuesta a un cambio en la entrada, como se observa en la Figura \ref{fit:delay} \cite{SarahL.Harris2010}.
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale = 0.4]{img/delay.png}
+		\caption{Tiempo de respuesta de una señal \cite{SarahL.Harris2010}}
+		\label{fit:delay}
+	\end{figure}
+
+	En la lógica combinacional existen dos tipos de tiempos, tiempo de propagación y tiempo de contaminación. El tiempo de propagación $t_{pd}$ es el tiempo máximo desde que la entrada cambia hasta que el o las salidas llegan a su valor final y el tiempo de contaminación $t_{cd}$ es el tiempo mínimo que dura la entrada en cambiar hasta que alguna salida empiece a cambiar su valor \cite{SarahL.Harris2010}.
+	
+	Además de los tiempos de propagación y contaminación en la electrónica de circuitos existe algo llamado la ruta crítica, que es la ruta más larga que tiene una entrada, hablando de circuitos combinacionales, para llegar a la salida, por lo tanto, esta ruta también sería la más lenta. Ahora para describir a un circuito hay dos factores muy importantes: latencia y tasa de transferencia. La latencia funcionaria como la frecuencia del circuito, ya que es el tiempo que se necesita para que el cambio en la entrada haga un cambio en la salida; esta puede ser expresada en tiempo o, para circuitos sincrónicos, un cierto número de ciclos de reloj.  Y la tasa de transferencia a la velocidad con la que la información puede ser procesada. Por ejemplo, en la Figura \ref{fig:criticalpath} se tienen tres rutas distintas desde una entrada hasta la salida, siendo la ruta azul la más lenta de estas.
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale = 0.4]{img/criticalpath.png}
+		\caption{Ruta crítica \cite{SarahL.Harris2010}}
+		\label{fig:criticalpath}
+	\end{figure}
+
+	Así el tiempo de propagación de un circuito combinacional es la suma de los tiempos de propagación de cada elemento que lo compone como se observa en la Ecuación \ref{eq:tpd} y el tiempo de contaminación es la suma de los tiempos de contaminación de la más corta del circuito combinacional que se puede observar en la Ecuación \ref{eq:tcd}.
+	
+	\begin{equation}
+		t_{pd} = 2t_{pdAND} + t_{pdOR}
+		%\caption{Tiempo de propagación del circuito}
+		\label{eq:tpd}
+	\end{equation}
+
+	\begin{equation}
+		t_{pd} = 2t_{pdAND} + t_{pdOR}
+		%\caption{Tiempo de contaminación del circuito}
+		\label{eq:tcd}
+	\end{equation}
+
+	En circuitos más complejos como un procesador pipeline como el de la Figura \ref{fig:pipe}, la velocidad de ciclos del reloj decrece haciendo retrasos en la ruta crítica, para esto se utiliza la técnica de Pipelining, el cual consiste en dividir el circuito en varias partes con un registro al final de cada una, de esta manera se divide la ruta crítica en pequeñas rutas, permitiendo que la velocidad del reloj aumente y consecuentemente también lo haga la tasa de transferencia. La segmentación consiste en descomponer la ejecución de cada instrucción en varias etapas para poder empezar a procesar una instrucción diferente en cada una de ellas y trabajar con varias a la vez. Las etapas de segmentación pueden ser: IF (búsqueda), ID (decodificación), EX (ejecución), MEM (memoria), WB (escritura), en una arquitectura relativamente sencilla.
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale = 0.15]{img/Pipe.jpg}
+		\caption{Procesador Pipeline \cite{pipewiki}}
+		\label{fig:pipe}
+	\end{figure}
+
+	La frecuencia máxima de operación de un circuito está determinada por la ruta crítica del mismo, para esto se toma la ruta crítica (en un procesador se realiza tomando la instrucción que tarda más en ejecutarse por completo sin afectar a las otras) y se calcula el tiempo que tarda en ciclos de reloj $T_{c}$, como se observa en la Ecuación \ref{eq:fHz}, esta frecuencia se mide en $Hz$.
+	
+	\begin{equation}
+		f_{c} = \dfrac{1}{T_{c}}
+		%\caption{Frecuencia de un circuito}
+		\label{eq:fHz}
+	\end{equation}
 	
 	\section{Conclusiones}
 	
