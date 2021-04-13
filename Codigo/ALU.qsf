@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY srlTest
+set_global_assignment -name TOP_LEVEL_ENTITY aluTest
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:08:37  MARCH 25, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -54,13 +54,39 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name SYSTEMVERILOG_FILE sum.sv
 set_global_assignment -name SYSTEMVERILOG_FILE xorGate.sv
 set_global_assignment -name SYSTEMVERILOG_FILE sll.sv
 set_global_assignment -name SYSTEMVERILOG_FILE srl.sv
 set_global_assignment -name SYSTEMVERILOG_FILE xorGateTest.sv
 set_global_assignment -name SYSTEMVERILOG_FILE sllTest.sv
 set_global_assignment -name SYSTEMVERILOG_FILE srlTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE flagGenerator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE flagGeneratorTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE adder1bit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE adder4bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE adderTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE andN.sv
+set_global_assignment -name SYSTEMVERILOG_FILE division.sv
+set_global_assignment -name SYSTEMVERILOG_FILE divisionTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE modulo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE moduleTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE multiplicacion.sv
+set_global_assignment -name SYSTEMVERILOG_FILE multiplyTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE orN.sv
+set_global_assignment -name SYSTEMVERILOG_FILE orTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sub4bits.sv
+set_global_assignment -name SYSTEMVERILOG_FILE subTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE compA2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE compA2Test.sv
+set_global_assignment -name SYSTEMVERILOG_FILE decoderBCD.sv
+set_global_assignment -name SYSTEMVERILOG_FILE muxN.sv
+set_global_assignment -name SYSTEMVERILOG_FILE muxTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE aluTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE topLevel.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testFrequency.sv
+set_global_assignment -name SYSTEMVERILOG_FILE UAL.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
