@@ -1,0 +1,10 @@
+module multiplicacion #(parameter N = 4)(A, B, C);
+	
+    input logic [N-1:0] A, B;
+	output logic [(2*N)-1:0] C;
+	
+	always @* begin
+		C = A * B;
+	end
+
+endmodule 
