@@ -81,12 +81,17 @@ set_global_assignment -name SYSTEMVERILOG_FILE compA2Test.sv
 set_global_assignment -name SYSTEMVERILOG_FILE decoderBCD.sv
 set_global_assignment -name SYSTEMVERILOG_FILE muxN.sv
 set_global_assignment -name SYSTEMVERILOG_FILE muxTest.sv
-set_global_assignment -name SYSTEMVERILOG_FILE register.sv
 set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE aluTest.sv
 set_global_assignment -name SYSTEMVERILOG_FILE topLevel.sv
 set_global_assignment -name SYSTEMVERILOG_FILE testFrequency.sv
-set_global_assignment -name SYSTEMVERILOG_FILE UAL.sv
+set_global_assignment -name SYSTEMVERILOG_FILE andTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mainHz.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mainFPGA.sv
+set_global_assignment -name SYSTEMVERILOG_FILE registerP.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testregister.sv
+set_global_assignment -name SYSTEMVERILOG_FILE topReg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE testRegistros.sv
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

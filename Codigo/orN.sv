@@ -1,9 +1,6 @@
-module orN #(parameter N = 4)(A, B, S);
+module orN #(parameter N = 4)(input logic [N-1:0] A, B, output logic [N-1:0] S);
 
-	input logic [N-1:0] A, B;
-	output logic [N-1:0] S;
-
-	always @* begin
+	always_comb begin
 		S = A | B;
 	end
 

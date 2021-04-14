@@ -1,5 +1,4 @@
-module adder4bits (input logic[3:0] A, input logic[3:0] B, 
-                output logic[4:0] S);
+module adder4bits (input logic[3:0] A, input logic[3:0] B, output logic[4:0] S, output logic Co);
     
     wire [4:1] C;
 	

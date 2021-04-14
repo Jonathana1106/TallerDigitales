@@ -22,7 +22,7 @@ module divisionTest();
         #10 a = 4'b1111; b = 4'b0011;
         #1 
         $display("a = %b, b = %b, c = %b\n", a, b, c);
-        assert (c === 'b0101) else $error ("0101 failed.");	  
+        assert (c === 'b0101) else $error ("0101 failed.");
     end
-    
+
 endmodule 

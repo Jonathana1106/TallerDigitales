@@ -1,22 +1,18 @@
-module  muxN #(parameter N = 4)(I0,I1,I2,I3,I4,I5,I6,I7,I8,I9,ALUControl,Q);
-
-    input logic [N:0] I0,I1,I2,I3,I4,I5,I6,I7,I8,I9;
-	input logic [3:0] ALUControl;
-	output logic [N:0] Q;
+module  muxN #(parameter N = 4)(input logic [N:0] I0, I1, I2, I3, I4, I5, I6, I7, I8, I9, input logic [3:0] ALUControl, output logic [N:0] Q);
 	
-    always @(ALUControl)begin
+    always_comb begin
 		case(ALUControl)
-			0:Q<=I0;
-			1:Q<=I1;
-			2:Q<=I2;
-			3:Q<=I3;
-			4:Q<=I4;
-			5:Q<=I5;
-			6:Q<=I6;
-			7:Q<=I7;
-			8:Q<=I8;
-			9:Q<=I9;
-			default:Q<=I0;
+			'b0000:Q <= I0;
+			'b0001:Q <= I1;
+			'b0010:Q <= I2;
+			'b0011:Q <= I3;
+			'b0100:Q <= I4;
+			'b0101:Q <= I5;
+			'b0110:Q <= I6;
+			'b0111:Q <= I7;
+			'b1000:Q <= I8;
+			'b1001:Q <= I9;
+			default:Q <= I0;
 		endcase
 	end
 endmodule 
