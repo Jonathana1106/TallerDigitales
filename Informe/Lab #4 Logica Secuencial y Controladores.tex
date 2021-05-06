@@ -1,0 +1,311 @@
+\documentclass[journal,trans]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multirow}
+%\usepackage[spanish,activeacute]{babel}
+%\usepackage[english,spanish]{babel}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{url}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+	
+	\newcommand{\titlepaper}{Laboratorio 4: Lógica Secuencial y Controladores}
+	
+	\title{\titlepaper}
+	
+	\renewcommand\IEEEkeywordsname{Palabras clave}
+	
+	\author{\IEEEauthorblockN{Fiorella Delgado León, Jonathan Guzmán Araya, Gerald Valverde Mc kenzie}
+		\IEEEauthorblockA{\\fiorelladelgado53@gmail.com, jonathana1196@gmail.com, gvmckenzie@mckode.com}
+		\IEEEauthorblockA{\\Área Académica de Ingeniería en Computadores}
+		\IEEEauthorblockA{\\Instituto Tecnológico de Costa Rica, Cartago, Costa Rica, 2021}
+	}
+	
+	% The paper headers
+	\markboth{Taller de Diseño Digital, \titlepaper}%
+	{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+	
+	\IEEEtitleabstractindextext{%
+		\begin{abstract}
+			In this laboratory it´s put into practice the work with FPGAs, their respective configuration in the System Verilog and VHDL languages ​​and the behavior and structural model; In addition, test bench will be carried out to check the proper functioning of the modules and experiments that are going to be developed. Finally, the FPGAs will be used to load the modules and use their internal components to check their proper operation.
+		\end{abstract}
+		\begin{IEEEkeywords}
+			Comportamiento, Estructural, Síntesis lógica y Test bench.
+	\end{IEEEkeywords}}
+	
+	% make the title area
+	\maketitle
+	
+	%\IEEEdisplaynontitleabstractindextext
+	% \IEEEdisplaynontitleabstractindextext has no effect when using
+	% compsoc or transmag under a non-conference mode.
+	
+	\IEEEpeerreviewmaketitle
+	
+	\section{Introducción}
+
+	Un circuito secuencial es aquel en el cual las salidas en un instante de tiempo determinado son una función de las entradas en ese instante y en instantes anteriores, por lo que se dice que este tipo de circuitos es capaz de “memorizar” información.
+	
+	Una máquina de estados finitos es un modelo matemático de computación en un momento dado del tiempo, se encuentra en un estado, y realiza cómputos de forma automática sobre una entrada para producir una salida. Este modelo está conformado por un alfabeto $\Sigma$, un conjunto de estados finitos $Q$, una función de transición $\delta$, un estado inicial $q_{i} \in Q$, una posible función de salida $\Omega$, y un conjunto de estados finales $A$. 
+	Su funcionamiento se basa en su función de transición, que recibe a partir de un estado inicial y que va avanzando en el autómata de un estado a otro causando una transición entre los estados dependiendo de la entrada que recibe, para finalmente detenerse en un estado final.
+	La función de transferencia de una máquina de estados puede ser parcial, es decir, puede no estar definida para toda combinación de $q \in Q$  y $\sigma \in \Sigma$.
+	
+	El origen de los autómatas finitos probablemente se remonta a su uso implícito en máquinas electromecánicas, desde principios del siglo XX {wolfram}.  Ya en 1907, el matemático ruso Andréi Márkov formalizó un proceso llamado cadena de Markov, donde la ocurrencia de cada evento depende con una cierta probabilidad del evento anterior {basharin}. Esta capacidad de "recordar" es utilizada posteriormente por los autómatas finitos, que poseen una memoria primitiva similar, en que la activación de un estado también depende del estado anterior, así como del símbolo o palabra presente en la función de transición.
+	Posteriormente, en 1943, surge una primera aproximación formal de los autómatas finitos con el modelo neuronal de McCulloch-Pitts. Durante la década de 1950 prolifera su estudio, frecuentemente llamándoles máquinas de secuencia; se establecen muchas de sus propiedades básicas, incluyendo su interpretación como lenguajes regulares y su equivalencia con las expresiones regulares {wolfram}. Al final de esta década, en 1959, surge el concepto de autómata finito no determinista en manos de los informáticos teóricos Michael O. Rabin y Dana Scott.
+	En la década de 1960 se establece su conexión con las series de potencias y los sistemas de sobre-escritura. Finalmente, con el desarrollo del sistema operativo Unix en la década de 1970, los autómatas finitos encuentran su nicho en el uso masivo de expresiones regulares para fines prácticos, específicamente en el diseño de analizadores léxicos, la búsqueda y reemplazo de texto.	
+	
+	Se pueden clasificar en:
+	
+	\begin{itemize}
+		\item Deterministas
+		\begin{itemize}
+			\item La transición desde un estado puede tener como destino un único estado.
+			\item No se aceptan transiciones con cadenas vacías.
+			\item Se permite el uso de backtracking.
+			\item Una cadena es aceptada si su transición es hacia un estado final.
+		\end{itemize}
+		\item No deterministas
+		\begin{itemize}
+			\item La transición desde un estado puede tener múltiples destinos.
+			\item Permite transiciones con cadenas vacías.
+			\item Una cadena es aceptada si solo una de todas sus posibles transiciones son hacia un estado final.
+		\end{itemize}
+	\end{itemize}
+	
+	Adicionalmente, las máquinas de estado pueden ser clasificadas como Máquinas de Mealy, cuya salida depende de su estado actual y de la entrada, es decir $\Omega: Q \times \Sigma \to \Lambda$ ó Máquinas de Moore, cuya salida depende solamente de su estado actual, es decir $\Omega: Q \to \Lambda$.
+	
+	Los autómatas finitos se pueden representar mediante grafos particulares, también llamados diagramas de estados finitos, de la siguiente manera:
+	
+	\begin{itemize}
+		\item Los estados \emph{Q} se representan como vértices, etiquetados con su nombre interior.
+		\item Una transición $\delta$ desde un estado a otro, dependiente de un símbolo del alfabeto, se representa mediante una arista dirigida que une a estos vértices, y que no está etiquetada con dicho símbolo.
+		\item El estado inicial $q_{0}$ se caracteriza por tener una arista que llega a él, proveniente de ningún otro vértice.
+		\item El o los estados finales \emph{F} se representan mediante vértices que están encerrados a su vez por otra circunferencia.
+	\end{itemize}
+	
+	El autómata finito en la Figura \ref{fig:FSME} está definido sobre el alfabeto ${\Sigma}=\{0,1\}$, posee dos estados, $S_{1}$ y $S_{2}$, y sus transiciones son ${\delta}(S_{1}, 0)=S_{2}$, ${\delta}(S_{1}, 1)=S_{1}$, ${\delta}(S_{2}, 0)=S_{1}$, y ${\delta}(S_{1}, 1)=S_{2}$. Su estado inicial es $S_{1}$, que también es su único estado final.
+	
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{./imagenes/FSME.pdf}
+		\caption{Autómata que determina si un número binario tiene un cantidad par de ceros}
+		\label{fig:FSME}
+	\end{figure}
+	
+	Otra manera de describir el funcionamiento de un autómata finito es mediante el uso de tablas de transiciones o matrices de estados. Para el ejemplo de la Figura \ref{fig:FSME} la Tabla \ref{tab:FSME} y la Tabla \ref{tab:FSMT} son posibles representaciones alternativas.
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{||c|c|c||}
+			\hline
+			\hline
+			Salida $q \in Q$ & Símbolo $\sigma \in \Sigma$ & Llegada $\delta (q, \sigma) \in Q$ \\
+			\hline
+			$S_{1}$          & 0                           & $S_{2}$\\
+			$S_{1}$          & 1                           & $S_{1}$\\
+			$S_{2}$          & 0                           & $S_{1}$\\
+			$S_{2}$          & 1                           & $S_{2}$\\
+			\hline
+			\hline
+		\end{tabular}
+		\caption{Tabla de transiciones}
+		\label{tab:FSME}
+	\end{table}
+	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{||c|c|c||}
+			\hline
+			\hline
+			&  0      & 1\\
+			\hline
+			\hline
+			${\to} {\star} S_{1}$ & $S_{2}$ & $S_{1}$\\
+			\hline
+			$S_{2}$               & $S_{1}$ & $S_{2}$\\
+			\hline
+			\hline
+		\end{tabular}
+		\caption{Tabla de transiciones}
+		\label{tab:FSMT}
+	\end{table}
+	
+	En la Tabla \ref{tab:FSMT} se marca el estado inicial con $\to$ y el estado final con $\star$, mientras que en la tabla se muestra el estado actual y la entrada que causa la transición al siguiente estado.
+	
+	\vspace{4mm}
+	
+	La Figura \ref{figmachineMoore} muestra una máquina de Moore; un tipo de máquina de estados finitos que genera una salida basándose en su estado actual, para cada estado $S$, la salida aparece en el nodo, por ejemplo, para el estado \emph{A}, la salida 0 aparece como A/0. Para este ejemplo, se muestra una red secuencial, que tiene una entrada, y una salida. La salida es 1, y se mantiene en 1, cuando se han introducido al menos dos 0s, y dos 1s como entrada.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{./imagenes/machineMoore.pdf}
+		\caption{Diagrama de estados de una máquina de Moore}
+		\label{figmachineMoore}
+	\end{figure}
+	
+	\begin{table}[h]
+		\centering
+		\bgroup
+		\def\arraystretch{1.5}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Estado actual & entrada & Siguiente estado & Salida \\
+			\hline
+			\multirow{2}{*}{A} & 0 & D & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & B & \\
+			\hline
+			\multirow{2}{*}{B} & 0 & E & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & C & \\
+			\hline
+			\multirow{2}{*}{C} & 0 & F & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & C & \\
+			\hline
+			\multirow{2}{*}{D} & 0 & G & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & E & \\
+			\hline
+			\multirow{2}{*}{E} & 0 & H & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & F & \\
+			\hline
+			\multirow{2}{*}{F} & 0 & I & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & F & \\
+			\hline
+			\multirow{2}{*}{G} & 0 & G & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & H & \\
+			\hline
+			\multirow{2}{*}{H} & 0 & H & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & I & \\
+			\hline
+			\multirow{2}{*}{I} & 0 & I & \multirow{2}{*}{1} \\
+			\cline{2-3}
+			& 1 & I & \\
+			\hline
+		\end{tabular}
+		\egroup
+		\caption{Tabla de Transición de red secuencial, cuya salida es 1 cuando ha tenido dos 0s y dos 1s de entrada}
+		\label{tab:MooreTable}
+	\end{table}
+	
+	Como se puede ver en la tabla \ref{tab:MooreTable}, el valor de la salida s\'olamente depende del estado actual.
+	
+	En contraste, como se puede ver en la tabla \ref{tab:tableMealy}, el valor de la salida depende tanto del estado actual, como de la entrada, a excepción de la transición del estado inicial $S_{i}$, pero eso se debe al ejemplo particular.
+	
+	La figura \ref{fig:machineMealy} muestra una máquina de Mealy; un tipo de máquina de estados finitos que genera una salida basándose en su estado actual y una entrada. Su diagrama de estados incluye ambas señales de entrada (en \textcolor{red}{rojo}) y de salida (en \textcolor{green}{verde}) para cada línea de transición. Esta empieza en el estado $S_{i}$, e implementa la función \emph{XOR} de los últimos dos valores m\'as recientemente introducidos.
+	
+	En contraste, la salida de una máquina de Moore de estados finitos (el otro tipo) depende solamente del estado actual de la máquina, dado que las transiciones no tienen entrada asociada. Sin embargo, para cada máquina de Mealy hay una máquina de Moore equivalente cuyos estados son la unión de los estados de la máquina de Mealy y el producto cartesiano de los estados de la máquina de Mealy y el alfabeto de la entrada.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{./imagenes/machineMealy.pdf}
+		\caption{Diagrama de estados para una Máquina de Mealy simple, con una entrada, y una salida}
+		\label{fig:machineMealy}
+	\end{figure}
+	
+	\begin{table}[h]
+		\centering
+		\bgroup
+		\def\arraystretch{1.5}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Estado actual & entrada & Siguiente estado & Salida \\
+			\hline
+			\multirow{2}{*}{$S_{i}$} & 0 & $S_{0}$ & \multirow{2}{*}{0} \\
+			\cline{2-3}
+			& 1 & $S_{1}$ &  \\
+			\hline
+			\multirow{2}{*}{$S_{0}$} & 0 & $S_{0}$ & 0 \\
+			\cline{2-4}
+			& 1 & $S_{1}$ & 1 \\
+			\hline
+			\multirow{2}{*}{$S_{1}$} & 0 & $S_{0}$ & 1 \\
+			\cline{2-4}
+			& 1 & $S_{0}$ & 0 \\
+			\hline
+		\end{tabular}
+		\egroup
+		\caption{Tabla de transición de un \textit{XOR} de las últimas 2 entradas}
+		\label{tab:tableMealy}
+	\end{table}
+
+	Los verificadores de tiempo se utilizan para verificar que en cierto intervalo de tiempo, la señal se debe mantener estable, antes y después de que la entrada del clock cambie.
+	
+	\vspace{10mm}
+	
+	\begin{itemize}
+		\item Setup time: Es la cantidad de tiempo en el que la señal sincronizada debe estar estable antes que el clock tenga un cambio, para garantizar que los datos se guarden/transmitan exitosamente, este valor puede ser modificado, variando el periodo en el clock.
+		\item Hold time: Es la cantidad de tiempo en que la señal se mantiene estable después de haber tenido el cambio y haber pasado el borde del clock. Este también garantiza que los datos se guarden/transmitan exitosamente. 
+	\end{itemize}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\linewidth]{./imagenes/setup_hold.jpg}
+		\caption{Setup Time \& Hold Time}
+		\label{fig:setup-time}
+	\end{figure}
+	
+	\section{Desarrollo}
+	Para el desarrollo de este laboratorio, se realizaron tres experimentos, en los cuales se pone en práctica la implementación de los lenguajes System Verilog y VHDL Verilog.
+	
+	\subsection{Experimento 1}
+	En este experimento, se requiere realizar ...
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[width = \columnwidth]{imagenes/PrimerN.png}
+		\caption[Figura1]{Diagrama de primer nivel de Tic-Tac-Toe.}
+		\label{fig:PrimerN}
+	\end{figure}
+	
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[width = \columnwidth]{imagenes/SegundoN.png}
+		\caption[Figura1]{Diagrama de segundo nivel de Tic-Tac-Toe.}
+		\label{fig:SegundoN}
+	\end{figure}
+	
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[width = \columnwidth]{imagenes/MaqEst.png}
+		\caption[Figura1]{Maquina de estados del programa.}
+		\label{fig:MaqEst}
+	\end{figure}
+	
+	
+	
+	\section{Resultados}
+	
+	
+	\subsection{Experimento 1}
+	
+	
+	\section{Análisis de resultados} 
+	
+	\subsection {Experimento 1}
+	Como se puede observar en la Figura
+	
+	
+	
+	\section{Conclusiones}
+	Al desarrollar este laboratorio, se obtuvieron las siguientes conclusiones:
+	
+	
+	\begin{itemize}
+		\item Al implementar cada uno de los tres experimentos, se puso en práctica el modelo de comportamiento y estructural.
+		\item 
+	\end{itemize}
+	
+\end{document}
