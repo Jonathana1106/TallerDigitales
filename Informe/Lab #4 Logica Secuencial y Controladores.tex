@@ -254,7 +254,51 @@
 		\caption{Setup Time \& Hold Time}
 		\label{fig:setup-time}
 	\end{figure}
+
+
+	Los elementos mecánicos como botones, teclas o interruptores, son dispositivos que cierran o abren un circuito mediante el contacto entre dos superficies metálicas, tal y como se muestra en la siguiente figura.
+
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale = 0.4]{imagenes/rebote.png}
+		\caption[Figura1]{Dispositivos mecánicos.}
+		\label{fig:DispMeca}
+	\end{figure}
 	
+	Dichas superficies metálicas, poseen elasticidad, de manera que al ponerlas en contacto se genera un choque que produce un movimiento en sentido contrario que las aleja, lo cual, sucede repetidamente hasta que se disipa la energía cinética adquirida por la lámina en movimiento, a este fenómeno se le conoce como efecto rebote.
+	El efecto rebote se presenta por el hecho de que la apertura o el cierre del circuito no es instantáneo, por lo que durante un intervalo de tiempo oscila entre cerrado y abierto.
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[scale = 0.5]{imagenes/efectoRebote.png}
+		\caption[Figura1]{Dispositivos mecánicos.}
+		\label{fig:EfectoRebo}
+	\end{figure}
+
+
+	En el caso de los circuitos digitales, también existen soluciones para este problema, por ejemplo, se puede hacer un circuito anti-rebote, de manera que se utilizan componentes como un Flip-Flop tipo  R-S, de manera que, si se tienen ambas entradas conectadas a la tierra, con resistencias, se puede cambiar su salida como respuesta a un cambio en una de sus entradas, pero como los flips-flops tienen el efecto de memoria, no importa, porque su estado se mantiene igual a que si solo hubiera entrada un pulso de 1 a 0, hasta que se haga m\'as estable, también se usan compuertas l\'ogicas , especialmente las de "smith-trigger", ya que son mucho mas estables.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.6]{imagenes/flipflopsrebote.png}
+		\caption{Ejemplo Solución Flip-Flop}
+		\label{fig:tikz-flipflop}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.7]{imagenes/smith.png}
+		\caption{Ejemplo solución con smith-trigger}
+		\label{fig:tikz-smith}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.8]{imagenes/rc_debouncer.pdf}
+		\caption{Circuito RC para remover oscilación de señal}
+		\label{fig:tikz-debouncer}
+	\end{figure}
+		
 	\section{Desarrollo}
 	Para el desarrollo de este laboratorio, se realizaron tres experimentos, en los cuales se pone en práctica la implementación de los lenguajes System Verilog y VHDL Verilog.
 	
@@ -283,8 +327,44 @@
 		\caption[Figura1]{Maquina de estados del programa.}
 		\label{fig:MaqEst}
 	\end{figure}
+
+	Las señales de sincronización de una interfaz VGA son las que se detallan en la tabla 1. R, G y B son tres señales analógicas que que determinan el color de un punto en la pantalla. Por otra parte, $h_sync$ y $v_sync$ son las señales que determinan la posición de referencia de la pantalla donde debe ser mostrado el punto.
 	
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{||c|c|c||}
+			\hline
+			\hline
+			Pin & Señal       & Descripción \\
+			\hline
+			1   & R           & análogo rojo, 0-0.7 V\\
+			2   & G           & análogo verde, 0-0.7 V o 0-3.1 V si sync-on-green \\
+			3   & B           & análogo azul, 0-0.7 V\\
+			13  & $h_{sync}$  & horizontal sync, 0V/5V waveform\\
+			14  & $v_{sync}$  & vertical sync, 0V/5V waveform\\
+			\hline
+			\hline
+		\end{tabular}
+		\caption{Tabla de transiciones}
+		\label{tab:VGA}
+	\end{table}
+
+	Mediante un manejo correcto de estas señales según las especificaciones de sincronización de la VGA, es posible mostrar lo que se desee en la pantalla. 
 	
+	Un diagrama de tiempos de las señales de sincronización de VGA para una resolución de 640x480 pixeles esta dado de la forma:
+	
+	\begin{figure}[hbtp]
+		\centering
+		\includegraphics[width = \columnwidth]{imagenes/vgapic.jpg}
+		\caption[Figura1]{VGA.}
+		\label{fig:VGA}
+	\end{figure}
+
+
+	\begin{itemize}
+		\item Front Porch: Es una región en blanco de la señales de sincronización horizontal y vertical, que se presenta antes de la región activa de vídeo.
+		\item Back Porch: Es una región en blanco de la señales de sincronización horizontal y vertical, que se presenta después de la región activa de vídeo.
+	\end{itemize}
 	
 	\section{Resultados}
 	
