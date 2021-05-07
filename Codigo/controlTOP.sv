@@ -31,28 +31,28 @@ module controlTOP (input logic clk, botonRST, botonContCasilla, botonSelect, inp
 	muxSelectPrint casilla0 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible0, rgb0); // Selecciona cual sprite se usará en dicha casilla
 	//------------------------------Casilla 1 --------------------------------------------//
 	regCasillaPad memoriaPad1(clk, botonRST, uno, contSelect, rdData1, jugador11, jugador21);
-	muxSelectPrint casilla1 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible1, rgb1);
+	muxSelectPrint casilla1 (clk, 318, 80, cuentaX, cuentaY, rdData0, visible1, rgb1);
 	//------------------------------Casilla 2 --------------------------------------------//
 	regCasillaPad memoriaPad2(clk, botonRST, dos, contSelect, rdData2, jugador12, jugador22);
-	muxSelectPrint casilla2 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible2, rgb2);
+	muxSelectPrint casilla2 (clk, 530, 80, cuentaX, cuentaY, rdData0, visible2, rgb2);
 	//------------------------------Casilla 3 --------------------------------------------//
 	regCasillaPad memoriaPad3(clk, botonRST, tres, contSelect, rdData3, jugador13, jugador23);
-	muxSelectPrint casilla3 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible3, rgb3);
+	muxSelectPrint casilla3 (clk, 106, 240, cuentaX, cuentaY, rdData0, visible3, rgb3);
 	//------------------------------Casilla 4 --------------------------------------------//
 	regCasillaPad memoriaPad4(clk, botonRST, cuatro, contSelect, rdData4, jugador14, jugador24);
-	muxSelectPrint casilla4 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible4, rgb4);
+	muxSelectPrint casilla4 (clk, 318, 240, cuentaX, cuentaY, rdData0, visible4, rgb4);
 	//------------------------------Casilla 5 --------------------------------------------//
 	regCasillaPad memoriaPad5(clk, botonRST, cinco, contSelect, rdData5, jugador15, jugador25);
-	muxSelectPrint casilla5 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible5, rgb5);
+	muxSelectPrint casilla5 (clk, 530, 240, cuentaX, cuentaY, rdData0, visible5, rgb5);
 	//------------------------------Casilla 6 --------------------------------------------//
 	regCasillaPad memoriaPad6(clk, botonRST, seis, contSelect, rdData6, jugador16, jugador26);
-	muxSelectPrint casilla6 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible6, rgb6);
+	muxSelectPrint casilla6 (clk, 106, 400, cuentaX, cuentaY, rdData0, visible6, rgb6);
 	//------------------------------Casilla 7 --------------------------------------------//
 	regCasillaPad memoriaPad7(clk, botonRST, siete, contSelect, rdData7, jugador17, jugador27);
-	muxSelectPrint casilla7 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible7, rgb7);
+	muxSelectPrint casilla7 (clk, 318, 400, cuentaX, cuentaY, rdData0, visible7, rgb7);
 	//------------------------------Casilla 8 --------------------------------------------//
 	regCasillaPad memoriaPad8(clk, botonRST, ocho, contSelect, rdData8, jugador18, jugador28);
-	muxSelectPrint casilla8 (clk, 106, 80, cuentaX, cuentaY, rdData0, visible8, rgb8);
+	muxSelectPrint casilla8 (clk, 530, 400, cuentaX, cuentaY, rdData0, visible8, rgb8);
 
 	//------------------------------Lineas--------------------------------------------//
 	padGato cuatroLineas (cuentaX, cuentaY, visibilidadLineas);
