@@ -1,8 +1,12 @@
+/*
+Modulo que se encarga de determinar una jugada gnadora si tienen similar (x) (o) y quien es el ganador.
+*/
 module determinaGanador(input [1:0] pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, output wire ganador, output wire [1:0] who);
     
     wire win1, win2, win3, win4, win5, win6, win7, win8;
     wire [1:0] who1, who2, who3, who4, who5, who6, who7, who8;
 
+    // Posibilidades de jugadas ganadoras
     detector3Fila jugadaGanadora1(pos0, pos1, pos2, win1, who1);// (1,2,3);
     detector3Fila jugadaGanadora2(pos3, pos4, pos5, win2, who2);// (4,5,6);
     detector3Fila jugadaGanadora3(pos6, pos7, pos8, win3, who3);// (7,8,9);

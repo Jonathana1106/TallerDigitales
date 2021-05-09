@@ -1,3 +1,6 @@
+/*
+Modulo que se encarga de guardar las imagenes a pintar por el controlador VGA.
+*/
 module RAMimg #(parameter ADDRESS_WIDTH=8, DATA_WIDTH=8, DEPTH=256, MEMFILE="") (input logic clk, input logic [ADDRESS_WIDTH-1:0] address, input logic rw, input logic [DATA_WIDTH-1:0] sram_in, output logic [DATA_WIDTH-1:0] sram_out);
     
     logic [DATA_WIDTH-1:0] memory_array [0:DEPTH-1];

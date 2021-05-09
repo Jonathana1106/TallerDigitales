@@ -1,3 +1,7 @@
+/**
+Modulo que cuando se presiona el boton este codificara la posicionJugada para escribirla en los
+registros correspondientes.
+*/
 module decodificadorPos(input[3:0] posicionJugada, input habilitarJugador, output wire [15:0] habilitarJugada);
     reg[15:0] temp1;
     assign habilitarJugada = (habilitarJugador == 1'b1) ? temp1 : 16'd0;

@@ -20,7 +20,7 @@ module controladorVideoVGA (
                             output logic SYNC_BLANK
                             );
 	
-	// VGA Control ariables
+	// VGA Control variables
 	logic enable_v_counter;
 	logic [15:0] h_count_value;
 	logic [15:0] v_count_value;
@@ -36,18 +36,18 @@ module controladorVideoVGA (
 	logic [7:0] black;
 	logic [15:0] address;
 	
-	// Clock divider
+	// Divisor de reloj
 	clock_divider vga_clock_gen (clk, clk25MHz);
 	
-	// Counters
+	// Contadores
 	horizontal_counter vga_horizontal (clk25MHz, enable_v_counter, h_count_value);
 	vertical_counter vga_Vertical (clk25MHz, enable_v_counter, v_count_value);
 	
-	// Based on VGA standards
+	// Basado en los estandares VGA
 	assign H_SYNC = (h_count_value < 96) ? 1'b1:1'b0;
 	assign V_SYNC = (v_count_value < 2) ? 1'b1:1'b0;
 	
-	// Sprite "o" memories
+	// Sprite "o"
     RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteOR.mem")
 	o_r(clk, address, 0, 16'b0, spriteOR);
 	RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteOG.mem")
@@ -55,7 +55,7 @@ module controladorVideoVGA (
 	RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteOB.mem")
 	o_b(clk, address, 0, 16'b0, spriteOB);
 	
-	// Sprite "x" memories
+	// Sprite "x"
 	RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteXR.mem")
 	x_r(clk, address, 0, 16'b0, spriteXR);
 	RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteXG.mem")
@@ -63,14 +63,14 @@ module controladorVideoVGA (
 	RAMimg #(16, 8, 40320, "C:/intelFPGA_lite/18.1/TicTacToe/Image processing/spriteXB.mem")
 	x_b(clk, address, 0, 16'b0, spriteXBb);
 	
-	// White
+	// Colores
 	assign white = 8'hFF;
 	assign black = 8'h0;
 	
 
 	always @*
 	begin		
-		// Block 00
+		// Casilla 0
 		if(h_count_value < 357 && h_count_value > 143 && v_count_value < 195 && v_count_value > 34)
 		begin
 			if(h_count_value <= 300 && h_count_value >= 200 && v_count_value <= 164 && v_count_value >= 64)
@@ -118,7 +118,7 @@ module controladorVideoVGA (
 					B = white;
 				end
 			end
-		// Block 01
+		// Casilla 1
 		end else if(h_count_value < 570 && h_count_value > 357 && v_count_value < 195 && v_count_value > 34)
 		begin
 			if(h_count_value <= 514 && h_count_value >= 414 && v_count_value <= 164 && v_count_value >= 64)
@@ -166,7 +166,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 02
+		// Casilla 2
 		end else if(h_count_value < 784 && h_count_value > 570 && v_count_value < 195 && v_count_value > 34)
 		begin
 			if(h_count_value <= 727 && h_count_value >= 627 && v_count_value <= 164 && v_count_value >= 64)
@@ -214,7 +214,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 10
+		// Casilla 3
 		end else if(h_count_value < 357 && h_count_value > 143 && v_count_value < 355 && v_count_value > 195)
 		begin
 			if(h_count_value <= 300 && h_count_value >= 200 && v_count_value <= 325 && v_count_value >= 225)
@@ -262,7 +262,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 11
+		// Casilla 4
 		end else if(h_count_value < 570 && h_count_value > 357 && v_count_value < 355 && v_count_value > 195)
 		begin
 			if(h_count_value <= 514 && h_count_value >= 414 && v_count_value <= 325 && v_count_value >= 225)
@@ -310,7 +310,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 12
+		// Casilla 5
 		end else if(h_count_value < 784 && h_count_value > 570 && v_count_value < 355 && v_count_value > 195)
 		begin
 			if(h_count_value <= 727 && h_count_value >= 627 && v_count_value <= 325 && v_count_value >= 225)
@@ -358,7 +358,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 20
+		// Casilla 6
 		end else if(h_count_value < 357 && h_count_value > 143 && v_count_value < 515 && v_count_value > 355)
 		begin
 			if(h_count_value <= 300 && h_count_value >= 200 && v_count_value <= 485 && v_count_value >= 385)
@@ -406,7 +406,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 21
+		// Casilla 7
 		end else if(h_count_value < 570 && h_count_value > 357 && v_count_value < 515 && v_count_value > 355)
 		begin
 			if(h_count_value <= 514 && h_count_value >= 414 && v_count_value <= 485 && v_count_value >= 385)
@@ -454,7 +454,7 @@ module controladorVideoVGA (
 					B = 8'hFF;
 				end
 			end
-		// Block 22
+		// Casilla 8
 		end else if(h_count_value < 784 && h_count_value > 570 && v_count_value < 515 && v_count_value > 355)
 		begin
 			if(h_count_value <= 727 && h_count_value >= 627 && v_count_value <= 485 && v_count_value >= 385)

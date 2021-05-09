@@ -1,3 +1,6 @@
+/*
+
+*/
 module clock_divider #(parameter div_value = 0) (input logic clk, output logic divided_clk = 0);
 
 	integer counter_value = 0;

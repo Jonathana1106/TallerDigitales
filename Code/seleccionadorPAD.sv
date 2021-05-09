@@ -1,3 +1,7 @@
+/*
+Modulo que se encarga de seleccionar la casila en la que se quiere imprimir
+X o O.
+*/
 module seleccionadorPAD(input botonSeleccionarCasilla, rst, output Xp, Op);
 
     logic X = 1'b1;

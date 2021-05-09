@@ -1,5 +1,17 @@
+/*
+Modulo que contiene los registros de cada casilla del TicTacToe, guardando las posiciones de ambos jugadores
+cuando son habilitados pos la FSM.
+*/
 module registrosPAD(input clk, rst, jugadaIlegal, input [8:0] jugador2Habilitado, input [8:0] jugador1Habilitado, output reg[1:0] pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8);
     // Position 1 
+    /*
+    Si el rst se presiona entonces se limpia la memoria de la casilla 0
+    en caso de que se detecte una jugada ilegal entonces conserva la posicion 
+    en la que se encuentra
+    si el jugador 2 esta habilidado para jugar almacena los datos de este
+    si el jugador 1 esta habilidado para jugar almacena los datos de este
+    si no mantiene la posicion
+    */
     always @(posedge clk or posedge rst) begin
         if(rst) begin
             pos0 <= 2'b00;

@@ -20,7 +20,7 @@ module FSMTTT(input clk, rst, j1, j2, movimientoIlegal, noEspacio, gane, output 
         case(estadoActual)
             INICIO : begin 
                 if(rst==1'b0 && j1 == 1'b1) begin 
-                    siguienteEstado <= JUGADOR1; // JUGADOR1 to j1 
+                    siguienteEstado <= JUGADOR1;
                 end
                 else begin 
                     siguienteEstado <= INICIO;
@@ -32,7 +32,7 @@ module FSMTTT(input clk, rst, j1, j2, movimientoIlegal, noEspacio, gane, output 
                 jugador1Juega <= 1'b1;
                 jugador2Juega <= 1'b0;
                 if(movimientoIlegal==1'b0) begin
-                    siguienteEstado <= JUGADOR2; // JUGADOR2 to j1  
+                    siguienteEstado <= JUGADOR2;
                 end
                 else begin 
                     siguienteEstado <= INICIO;
@@ -46,18 +46,18 @@ module FSMTTT(input clk, rst, j1, j2, movimientoIlegal, noEspacio, gane, output 
                 end
                 else if(gane == 1'b0 && noEspacio == 1'b0) begin 
                     siguienteEstado <= INICIO;
-                    jugador2Juega <= 1'b1;// JUGADOR2 to j1 when j2=1
+                    jugador2Juega <= 1'b1;
                 end 
                 else if(noEspacio == 1 || gane == 1'b1) begin 
-                    siguienteEstado <= JUEGOFINALIZADO; // game done 
-                    jugador2Juega <= 1'b1;// JUGADOR2 to j1 when j2=1
+                    siguienteEstado <= JUEGOFINALIZADO;
+                    jugador2Juega <= 1'b1;
                 end  
             end 
             JUEGOFINALIZADO : begin 
                 jugador1Juega <= 1'b0;
                 jugador2Juega <= 1'b0; 
                 if(rst==1'b1) begin 
-                    siguienteEstado <= INICIO;// rst the game to INICIO 
+                    siguienteEstado <= INICIO;
                 end
                 else begin 
                     siguienteEstado <= JUEGOFINALIZADO;  

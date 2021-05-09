@@ -1,3 +1,8 @@
+/*
+Modulo que se encarga de determinar si el juego se ha acabado, ya sea que alguno de los jugadores
+haya ganado o que hayan empatado, ya que esto ocurre cuando ya o quedan mas casillas vacias
+entonces este se encarga de detectar esto.
+*/
 module juegoTerminado(input [1:0] pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, output wire juegoFinalizado);
     
     wire temp0, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8;
@@ -12,6 +17,6 @@ module juegoTerminado(input [1:0] pos0, pos1, pos2, pos3, pos4, pos5, pos6, pos7
     assign temp7 = pos7[1] | pos7[0];
     assign temp8 = pos8[1] | pos8[0];
     // output
-    assign juegoFinalizado =((((((((temp0 & temp1) & temp2) & temp3) & temp4) & temp5) & temp6) & temp7) & temp8);
+    assign juegoFinalizado = ((((((((temp0 & temp1) & temp2) & temp3) & temp4) & temp5) & temp6) & temp7) & temp8);
 
 endmodule 

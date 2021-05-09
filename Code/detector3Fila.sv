@@ -11,10 +11,10 @@ module detector3Fila(input [1:0] pos0, pos1, pos2, output wire ganador, output w
     assign temp2[0] = temp0[0] & temp1[0];
     assign temp3 = pos0[1] | pos0[0];
     
-    // ganador if 3 positions are similar and should be 01 or 10 
+    
     assign ganador = temp3 & temp2[1] & temp2[0];
     
-    // determine who the ganador is 
+    
     assign who[1] = ganador & pos0[1];
     assign who[0] = ganador & pos0[0];
 
