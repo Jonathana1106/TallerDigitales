@@ -14,7 +14,7 @@ module decodificadorPB(input logic [3:0] posicionInput, input logic boton, outpu
 
 
     always @(posicionInput[0] or posicionInput[1] or posicionInput[2] or posicionInput[3] or boton ) begin
-        if(posicionInput == 4'b00000 && boton == 1 ) begin // para casilla 0
+        if(posicionInput == 4'b0000 && boton == 1 ) begin // para casilla 0
             
             cero <= 1'b1;
             uno <= 1'b0;
@@ -26,7 +26,7 @@ module decodificadorPB(input logic [3:0] posicionInput, input logic boton, outpu
             siete <= 1'b0;
             ocho <= 1'b0;
 		
-        end else if (posicionInput == 4'b10000 ) begin // para casilla 0
+        end else if (posicionInput == 4'b0000 ) begin // para casilla 0
 			
             cero <= 1'b0;
             uno <= 1'b0;
@@ -42,8 +42,8 @@ module decodificadorPB(input logic [3:0] posicionInput, input logic boton, outpu
 			
 		end else if(posicionInput == 4'b0001 && boton == 1) begin //Casilla 1
 			
-            uno <= 1'b1;
             cero <= 1'b0;
+				uno <= 1'b1;
             dos <= 1'b0;
             tres <= 1'b0;
             cuatro <= 1'b0;
