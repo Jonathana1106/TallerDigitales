@@ -1,3 +1,0 @@
-La carpeta 18.1 debe copiarse a la ruta C:\intelFPGA_lite
-ya que los archivos (imagenes a mostrarse) se cargan desde
-esta ruta.
