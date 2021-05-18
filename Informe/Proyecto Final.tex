@@ -61,7 +61,7 @@
 	\subsubsection{Data Procesing Instructions}
 	Las instrucciones de procesamiento de datos tienen dos registros fuentes, donde el segundo puede ser un inmediato y el tercer registro que es el destino. 
 	
-	\begin{figure}[h]
+	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=\linewidth]{img/datapro.png}
 		\caption{Codificación de instrucciones de procesamiento de datos \cite{SarahLHarris2010}}
@@ -106,7 +106,7 @@
 		\end{itemize}
 	\end{itemize}
 
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -129,7 +129,7 @@
 	\subsubsection{Memory Instructions}
 	Las instrucciones de memoria utilizan un formato similar al que utilizan las instrucciones de procesamiento de datos, con las mimas seis divisiones, sin embargo, utilizan un código de operación diferente al utilizado en las instrucciones de procesamiento de datos tal y como se muestra en la Figura \ref{fig:MemoryP}.
 	
-	\begin{figure}[h]
+	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=\linewidth]{img/mempro.png}
 		\caption{Codificación de instrucciones de memoria \cite{SarahLHarris2010}}
@@ -163,7 +163,7 @@
 		\end{itemize}
 	\end{itemize}
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -179,7 +179,7 @@
 		\label{tab:IU}
 	\end{table}
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -199,7 +199,7 @@
 		\label{tab:PW}
 	\end{table}
 	
-	\begin{table}[!htb]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|c|}
 			\hline
@@ -232,7 +232,7 @@
 		\item imm24: se utiliza para especificar la dirección de una dirección de instrucción relativa a $PC + 8$.
 	\end{itemize}
 	
-	\begin{figure}[h]
+	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width=\linewidth]{img/brpro.png}
 		\caption{Codificación instrucciones de bifurcación \cite{SarahLHarris2010}}
@@ -242,9 +242,9 @@
 	\subsubsection{Miscellaneous Instructions}
 	El conjunto de instrucciones de ARMv4 tiene otro grupo que se detalla en la Tabla \ref{tab:MISCP}.
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
-		\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|}
+		\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|}
 			\hline
 			Instrucciones            & Descripción                             & Propósito \\
 			\hline
@@ -253,7 +253,7 @@
 			\hline
 			SWP, SWPB                & Intercambiar byte                       & Carga atómica y almacenamiento para sincronización de procesos \\
 			\hline
-			LDRT, LDRBT, STRT, STRBT & cargar/guardar palabra/byte con traslado & Permitir que el sistema operativo acceda a la memoria en el espacio de memoria virtual del usuario \\
+			LDRT, LDRBT, STRT, STRBT & cargar/guardar palabra/byte con traslado& Permitir que el sistema operativo acceda a la memoria en el espacio de memoria virtual del usuario \\
 			\hline
 			SWI                      & Interrupción de software                & Crear una excepción, que a menudo se usa para llamar al sistema operativo \\
 			\hline
@@ -269,7 +269,7 @@
 
 	Las instrucciones ARM opcionalmente establecen indicadores de condición en función del resultado Las instrucciones posteriores se ejecutan condicionalmente, dependiendo del estado de esos indicadores, también llamados indicadores de estado que se observan en la Tabla \ref{tab:Banderas}.
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|p{4.5cm}|}
 			\hline
@@ -291,28 +291,28 @@
 
 	Estas banderas se activan dependiendo del tipo de instrucción que se esté ejecutando, en la Tabla \ref{tab:FlagsInstructions} se detallan las instrucciones y los tipos de banderas que estos activarían. 
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|p{5cm}|c|}
 			\hline
 			Tipo      & Instrucciones                              & Banderas   \\
 			\hline
 			\hline
-			Add      & ADDS, ADCS                                 & N, Z, C, V \\
+			Add       & ADDS, ADCS                                 & N, Z, C, V \\
 			\hline
-			Subtract & SUBS, SBCS, RSBS, RSCS                     & N, Z, C, V \\
+			Subtract  & SUBS, SBCS, RSBS, RSCS                     & N, Z, C, V \\
 			\hline
-			Compare  & CMP, CMN                                   & N, Z, C, V \\
+			Compare   & CMP, CMN                                   & N, Z, C, V \\
 			\hline
-			Shifts   & ASRS, LSLS, LSRS, RORS, RRXS               & N, Z, C    \\
+			Shifts    & ASRS, LSLS, LSRS, RORS, RRXS               & N, Z, C    \\
 			\hline
-			Logical  & ANDS, ORRS, EORS, BICS                     & N, Z, C    \\
+			Logical   & ANDS, ORRS, EORS, BICS                     & N, Z, C    \\
 			\hline
-			Test     & TEQ, TST                                   & N, Z, C    \\
+			Test      & TEQ, TST                                   & N, Z, C    \\
 			\hline
-			Move     & MOVS, MVNS                                 & N, Z, C    \\
+			Move      & MOVS, MVNS                                 & N, Z, C    \\
 			\hline
-			Multiply & MULS, MLAS, SMLALS, SMULLS, UMLALS, UMULLS & N, Z       \\
+			Multiply  & MULS, MLAS, SMLALS, SMULLS, UMLALS, UMULLS & N, Z       \\
 			\hline
 		\end{tabular}
 		\caption{Instrucciones que activan las banderas}
@@ -321,14 +321,14 @@
 	
 	La ALU establece estos indicadores y se mantienen en los cuatro bits superiores del CPSR de32 bits tal y como se muestra en la Figura, mientras que los cinco bits menos significativos son los bits de modo, esto es porque un procesador ARM puede operar en una serie de modos de ejecución con diferentes niveles de privilegios. Los diferentes modos permiten que excepciones tomen lugar sin dañar el estado en que se encuentra. Estos modos están especificados en la parte baja del CPSR como se muestra en la Figura \ref{fig:Banderas}y se detallan en Tabla \ref{tab:Modos}.
 	
-	\begin{figure}[h]
+	\begin{figure}[htbp]
 		\centering
 		\includegraphics[width =\linewidth]{img/CPSR.png}
 		\caption{Bits de las banderas \cite{SarahLHarris2010}}
 		\label{fig:Banderas}
 	\end{figure}
 	
-	\begin{table}[h]
+	\begin{table}[htbp]
 		\centering
 		\begin{tabular}{|c|c|}
 			\hline
@@ -353,10 +353,35 @@
 	\end{table}
 		
 	\subsection{Registros}
-	Las instrucciones 
+	Las instrucciones necesitan acceso a operandos rápidamente así estas pueden a su vez ejecutarse rápidamente también, pero los operandos almacenados en memoria toman demasiado tiempo en ser traídos, por lo tanto la mayoría de arquitecturas pueden ser visibles por el programador, ARMv4 tiene 16 registros, además de un Registro de Estado del Programa Actual (CPSR), este contiene el estado del procesador y la información de control.
+	La distribución del uso de estos registros se detalla en la Tabla \ref{tab:Registros}.
+	
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Registro & Número & Uso                    & Reservado \\
+			\hline
+			\hline
+			R0-R3    & 0-3    & Registro de parámetros & No        \\
+			\hline
+			R4-R11   & 4-11   & Registro de guardado   & Sí        \\
+			\hline
+			R12      & 12     & Registro temporal      & No        \\
+			\hline
+			R13      & 13     & Puntero de pila        & Sí        \\
+			\hline
+			R14      & 14     & Registro de enlace     & Sí        \\
+			\hline
+			R15      & 15     & Contador del programa  &           \\
+			\hline
+		\end{tabular}
+		\caption{Registros ARMv4}
+		\label{tab:Registros}
+	\end{table}
 	
 	\subsection{Memoria}
-	En la memoria
+	Si los registros fueran la única manera de almacenar operandos estaríamos condenados a realizar solamente programas simples con no más 15 variables, sin embargo, los datos pueden ser almacenados en memoria, a pesar de que los registros son muy rápidos, estos son pequeños, por otro lado, las memorias son grandes pero lentas en comparación con los registros. Por esta razón, usamos variables para ser almacenadas en los registros y existen instrucciones como LDR para cargar un dato de memoria en un registro.
 	
 	\section{Sistema Desarrollado}
 	Para el desarrollo de este proyecto, se realizó la implementación de una micro arquitectura, utilizando un procesador ARMv4, para descifrar el texto introducido (el cual estará cifrado) mediante uno de los tres algoritmos de descifrado, por medio del lenguaje System Verilog.
