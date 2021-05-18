@@ -14,12 +14,19 @@ TTL                             | CMOS
 ![](Lab1/Informe/img/TTLC1.png) |![](Lab1/Informe/img/CMOSC1.png)
 
 ### Experimento #2:
-Proponer un circuito que modele la función - F = ((A ~& B) & C) + (A ^ C).
+Proponer un circuito que modele la función F = ((A ~& B) & C) + (A ^ C).
 ### Experimento #3:
 A partir de compuertas lógicas y partiendo de un sumador completo de 1 bit, desarrollar un sumador completo de 2 bits.
 
-![](Lab1/Informe/img/SC2B.png)
+Sumador 1 bit                               | Sumador 2 bits
+:-------------------------:                 |:-------------------------:|
+![](Lab1/Informe/img/SC1B.png)              |![](Lab1/Informe/img/SC2B.png)
 
+Desarrollados en MultiSim se tiene lo siguiente.
+
+Sumador 1 bit                               | Sumador 2 bits
+:-------------------------:                 |:-------------------------:|
+![](Lab1/Informe/img/Sumador1BInside.png)   |![](Lab1/Informe/img/Sumador2B.png)
 ## Laboratorio #2
 
 
