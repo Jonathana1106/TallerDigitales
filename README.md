@@ -15,6 +15,11 @@ TTL                             | CMOS
 
 ### Experimento #2:
 Proponer un circuito que modele la función F = ((A ~& B) & C) + (A ^ C).
+Para esto de debe desarrollar una interfaz entre las tecnologías TTL y CMOS, pero dato que los dispositivos utilizados no necesitanq ue se desarrolle una interfaz entre los mismos se tiene.
+
+TTL                                         |
+:-------------------------:                 |
+![](Lab1/Informe/img/FuncionIterfaz.png)    |
 ### Experimento #3:
 A partir de compuertas lógicas y partiendo de un sumador completo de 1 bit, desarrollar un sumador completo de 2 bits.
 
