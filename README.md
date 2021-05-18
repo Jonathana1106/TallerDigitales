@@ -11,7 +11,7 @@ Realizar mediciones con circuitos TTL y CMOS.
 
 TTL                             | CMOS
 :-------------------------:     |:-------------------------:|
-![](Lab1/Informe/img/TTLC1.png  |![](Lab1/Informe/img/CMOSC1.png)
+![](Lab1/Informe/img/TTLC1.png) |![](Lab1/Informe/img/CMOSC1.png)
 
 ### Experimento #2:
 Proponer un circuito que modele la función - F = ((A ~& B) & C) + (A ^ C).
