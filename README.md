@@ -56,11 +56,12 @@ Contador Parametrizable de N bits           |
 ## Laboraotorio #3 
 Un circuito combinacional es aquel en que las salidas solamente dependen combinaciones de la entradas y no del tiempo. Esta característica hace que los sistemas combinacionales sean en general rápidos, ya que no requieren ningún tipo de sincronización con se˜nales de reloj. En sistemas digitales complejos, como los microprocesadores, los circuitos de lógica combinacional juegan un papel fundamental. Es por esto que en este laboratorio se realizará el dise˜no de una Unidad Lógico-Aritmética (ALU), componente esencial en la etapas de ejecución de cualquier microprocesador moderno. La ALU es la unidad encargada de la ejecución de las instrucciones aritméticas y lógicas en un procesador. Dichas instrucciones requieren tiempos de ejecución cortos, para tener máximo desempe˜no en el procesador y es por esta razón por la que en general se requiere de una lógica combinacional en su implementación. En este laboratorio el estudiante aplicará los conceptos de lógica combinacional en el dise˜no de circuitos digitales lógicos y aritméticos con un lenguaje de descripción de hardware. Además, se abordarán asuntos de tiempo relacionados con lógica combinacional, como lo son los tiempos de propagación y contaminación así como la ruta crítica.
 
+### Experimento #1: 
+Se debe realizar una calculadora parametrizable, con el fin de que pueda ejecutar las operaciones de suma, resta, multiplicación, división, módulo, and, or, xor, shiftL, shifR. Se debe de implementar las banderas de estados de la ALU: Negativo (N), Cero (Z), Acarreo (C) y Desbordamiento (V).
+
 ALU (Interior)                              | ALU (conectada)
 :-------------------------:                 |:-------------------------:|
 ![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png)
-### Experimento #1: 
-Se debe realizar una calculadora parametrizable, con el fin de que pueda ejecutar las operaciones de suma, resta, multiplicación, división, módulo, and, or, xor, shiftL, shifR. Se debe de implementar las banderas de estados de la ALU: Negativo (N), Cero (Z), Acarreo (C) y Desbordamiento (V).
 
 ### Experimento #2: 
 ## Laboratorio #4 
