@@ -76,6 +76,8 @@ La aplicación a implementar será un juego de tic-tac-toe (gato) para dos jugad
 Los controles de la misma son:
 
 ```shell
-
+    Key0: buscar la casilla donde se desea realizar la jugada
+    Key1: seleccionar la casilla y jugar
+    Key2: realizar un reset al juego
 ```
 ## Proyecto 
