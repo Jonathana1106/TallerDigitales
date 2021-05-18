@@ -8,9 +8,9 @@ Este laboratorio introduce al estudiante al uso de chips de compuertas lógicas,
 ### Experimento #1: 
 Realizar mediciones con circuitos TTL y CMOS.
 
-TTL                             | CMOS
-:-------------------------:     |:-------------------------:|
-![](Lab1/Informe/img/TTLC1.png) |![](Lab1/Informe/img/CMOSC1.png)
+TTL                             | CMOS                              |
+:-------------------------:     |:-------------------------:        |
+![](Lab1/Informe/img/TTLC1.png) |![](Lab1/Informe/img/CMOSC1.png)   |
 
 ### Experimento #2:
 Proponer un circuito que modele la función F = ((A ~& B) & C) + (A ^ C).
@@ -61,7 +61,7 @@ Se debe realizar una calculadora parametrizable, con el fin de que pueda ejecuta
 
 ALU (Interior)                              | ALU (conectada)
 :-------------------------:                 |:-------------------------:|
-![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png)
+![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png) 
 
 ### Experimento #2: 
 ## Laboratorio #4 :tv:
