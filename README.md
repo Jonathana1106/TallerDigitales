@@ -80,4 +80,15 @@ Los controles de la misma son:
     Key1: seleccionar la casilla y jugar
     Key2: realizar un reset al juego
 ```
-## Proyecto 
+## Proyecto :computer:
+La finalidad de este proyecto final es que el estudiante aplique los conocimientos adquiridos del dise˜no de sistemas digitales, en estructuras avanzadas, que involucran sincronización y la "interacción" con elementos de entrada-salida y memoria, así como elementos de procesamiento, propios de un computador. Para ello, cada grupo de estudiantes deberá dise˜nar e implementar, mediante el lenguaje de descripción de hardware SystemVerilog, un computador mínimo, basado en un microprocesador con arquitectura ARM. Este proyecto reforzará la metodología de dise˜no modular, utilizada en los diferentes laboratorios, de manera que implica investigación, planeamiento del dise˜no, descripción del hardware, implementación y verificación funcional respectiva.
+
+#### Aplicación
+Este proyecto final deberá solucionar el siguiente problema, utilizando un procesador ARMv4. El sistema deberá contar con una memoria ROM en la que se precargarán los caracteres (Frases). Estos caracteres estarán en código ASCII de (0-255), con el fin de que sean procesados. Estos caracteres podrán ser tomados de cualquier manera. Cabe resaltar que el texto introducido está cifrado y para descifrarlo se utilizará alguno de los tres algoritmos que se detallan más adelante. La función del procesador será aplicar el filtro, que el usuario elija por medio de los switches, a los caracteres precargados en memoria. Los nuevos caracteres descifrados serán almacenados en memoria para su posterior despliegue en un monitor (Controlador VGA). Cabe resaltar que el procesamiento de descifrado inicia cuando el usuario presiona alguno de los botones.
+
+#### Filtrado de Texto
+El filtrado del texto se realizar´a con alguno alguno de los siguientes algoritmos.
+
+- XOR: A cada caracter se le aplica la operación XOR con el número representado por los switches (los primeros tres).
+- NOT: A cada caracter se le debe realizar la operación NOT (bitwise).
+- Suma: A cada caracter se le suma 2.
