@@ -65,5 +65,17 @@ ALU (Interior)                              | ALU (conectada)
 
 ### Experimento #2: 
 ## Laboratorio #4 
+Un circuito secuencial es aquel en que las salidas dependen tanto de las combinaciones de la entradas y del tiempo. Esta característica hace que los sistemas secuenciales sean poderosos en tareas que involucran tiempo, a la vez que representan un mayor grado de complejidad que los combinacionales. En sistemas digitales complejos, como los microprocesadores y controladores de dispositivos externos, los circuitos de lógica secuencial juegan un papel fundamental. La lógica secuencial, al tomar el cuenta el tiempo, ha sido utilizada además para la creación de controladores de diferentes dispositivos en los computadores modernos. Cada componente de hardware que  se anexa a un computador tiene su protocolo para configuración y uso. Uno de los dispositivos más comunes anexados a un computador es el dispositivo de visualización, como es el caso de un monitor. Existen diferentes tecnologías y protocolos de configuración de monitores. Para este laboratorio se trabajará con monitores que trabajan con una interfaz VGA (Video Graphics Array) en un resolución de 640x480 pixeles. En este laboratorio se aplicarán los conceptos de dise˜no digital secuencial, en el dise˜no de una aplicación manejada por una máquina de estados finitos, así como un controlador para un monitor VGA, que eventualmente podría ser usado por un computador para la visualización de información. Adicionalmente, se implementará una aplicación.
 
+#### Controlador VGA
+Para el dise˜no del controlador VGA debe realizar un modelo de estructura, en SystemVerilog, que incluya los subcomponentes del mismo. Tome en cuenta la naturaleza de las se˜nales, así como el diagrama de tiempos investigado en la sección anterior. El controlador deberá manejar las se˜nales de sincronización, así como las se˜nales de color por pixel (8 bits por canal, por pixel), que serán generadas tomando en cuenta el controlador principal de la aplicación. El controlador deberá dise˜narse para una resolución de 640x80 pixeles.
+
+#### Tic-Tac-Toe
+La aplicación a implementar será un juego de tic-tac-toe (gato) para dos jugadores. Al iniciar, la aplicación principal se deberá separar la pantalla en 9 secciones de igual tama˜no. El primer jugador podrá desplazarse por las secciones utilizando los botones de la FPGA. Cuando el jugador lo desee, podrá seleccionar una de las secciones por medio de un botón. Al realizarlo, deberá mostrarse una figura (x,o, o cualquier otra) sobre esa casilla, marcando la jugada. Si el jugador no hace su movida en 30 segundos, el sistema le asignará una posición al azar, sobre las restantes. Luego, siguiendo la lógica del juego, el segundo jugador hará su movida de la misma forma. La figura que representa al segundo jugador deberá ser diferente al primero. El juego deberá continuar hasta que un jugador logre una línea (vertical, horizontal o diagonal) de 3 de sus figuras representativas, o hasta que no queden casillas libres. Al finalizar el juego deberá mostrarse en pantalla el jugador ganador, así como resaltarse la jugada ganadora (línea).
+
+Los controles de la misma son:
+
+```shell
+
+```
 ## Proyecto 
