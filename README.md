@@ -59,13 +59,9 @@ Un circuito combinacional es aquel en que las salidas solamente dependen combina
 ### Experimento #1: 
 Se debe realizar una calculadora parametrizable, con el fin de que pueda ejecutar las operaciones de suma, resta, multiplicación, división, módulo, and, or, xor, shiftL, shifR. Se debe de implementar las banderas de estados de la ALU: Negativo (N), Cero (Z), Acarreo (C) y Desbordamiento (V).
 
-ALU (Interior)                              | 
-:-------------------------:                 |
-![](Lab3/Informe/img/nivel31.png)           |
-
-ALU (conectada)                             |
-:-------------------------:                 |
-![](Lab3/Informe/img/nivel32.png)           |
+ALU (Interior)                              | ALU (conectada)                   |
+:-------------------------:                 |:-------------------------:        |
+![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png)  |
 
 ### Experimento #2: 
 ## Laboratorio #4 :tv:
