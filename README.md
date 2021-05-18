@@ -22,15 +22,15 @@ Interfaz TTL - CMOS                         |
 ### Experimento #3:
 A partir de compuertas lógicas y partiendo de un sumador completo de 1 bit, desarrollar un sumador completo de 2 bits.
 
-Sumador 1 bit                               | Sumador 2 bits
-:-------------------------:                 |:-------------------------:|
-![](Lab1/Informe/img/SC1B.png)              |![](Lab1/Informe/img/SC2B.png)
+Sumador 1 bit                               | Sumador 2 bits                |
+:-------------------------:                 |:-------------------------:    |
+![](Lab1/Informe/img/SC1B.png)              |![](Lab1/Informe/img/SC2B.png) |
 
 Desarrollados en MultiSim se tiene lo siguiente.
 
-Sumador 1 bit                               | Sumador 2 bits
-:-------------------------:                 |:-------------------------:|
-![](Lab1/Informe/img/Sumador1BInside.png)   |![](Lab1/Informe/img/Sumador2B.png)
+Sumador 1 bit                               | Sumador 2 bits                    |
+:-------------------------:                 |:-------------------------:        |
+![](Lab1/Informe/img/Sumador1BInside.png)   |![](Lab1/Informe/img/Sumador2B.png)|
 ## Laboratorio #2 :floppy_disk:
 Este laboratorio introduce al estudiante al dise˜no de circuitos digitales por medio de lenguajes de descripción de hardware (HDL). Un HDL es una forma de describir la especificación, comportamiento o estructura de un módulo de hardware, por medio de una estructura pro-gramática. Pese a su similitud con un lenguaje de programación (tipos de datos, estructuras básicas, sintaxis, etc) los HDL deben describir hardware, por lo que para todo dise˜no, se debe tener conocimiento completo de qué componente se están dise˜nando. Esto implica la realización previa de tablas de verdad, diagramas de estados, diagramas de bloques, etc.
 
@@ -59,9 +59,9 @@ Un circuito combinacional es aquel en que las salidas solamente dependen combina
 ### Experimento #1: 
 Se debe realizar una calculadora parametrizable, con el fin de que pueda ejecutar las operaciones de suma, resta, multiplicación, división, módulo, and, or, xor, shiftL, shifR. Se debe de implementar las banderas de estados de la ALU: Negativo (N), Cero (Z), Acarreo (C) y Desbordamiento (V).
 
-ALU (Interior)                              | ALU (conectada)
-:-------------------------:                 |:-------------------------:|
-![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png) 
+ALU (Interior)                              | ALU (conectada)                   |
+:-------------------------:                 |:-------------------------:        |
+![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png)  |
 
 ### Experimento #2: 
 ## Laboratorio #4 :tv:
