@@ -1,8 +1,8 @@
-# TallerDigitales 閭
+# TallerDigitales :computer:
 
 En este git se almacenarán los Laboratorios, las Tareas y el Proyecto correspondientes al curso de Taller de Diseño de Sistemas Digitales.
 
-## Laboratorio #1 
+## Laboratorio #1 :floppy_disk:
 Este laboratorio introduce al estudiante al uso de chips de compuertas lógicas, así como de herramientas y dispositivos relacionados con uso. Se dará especial énfasis al comportamiento y a las características eléctricas de algunas familias de compuertas lógicas. En este laboratorio será necesario un software que permita la simulación de componentes digitales y analógicos discretos (LTSpice, NI MultiSim, Proteus, etc).
 
 ### Experimento #1: 
@@ -31,7 +31,7 @@ Desarrollados en MultiSim se tiene lo siguiente.
 Sumador 1 bit                               | Sumador 2 bits
 :-------------------------:                 |:-------------------------:|
 ![](Lab1/Informe/img/Sumador1BInside.png)   |![](Lab1/Informe/img/Sumador2B.png)
-## Laboratorio #2 
+## Laboratorio #2 :floppy_disk:
 Este laboratorio introduce al estudiante al dise˜no de circuitos digitales por medio de lenguajes de descripción de hardware (HDL). Un HDL es una forma de describir la especificación, comportamiento o estructura de un módulo de hardware, por medio de una estructura pro-gramática. Pese a su similitud con un lenguaje de programación (tipos de datos, estructuras básicas, sintaxis, etc) los HDL deben describir hardware, por lo que para todo dise˜no, se debe tener conocimiento completo de qué componente se están dise˜nando. Esto implica la realización previa de tablas de verdad, diagramas de estados, diagramas de bloques, etc.
 
 ### Experimento #1:
@@ -53,7 +53,7 @@ El modelo de bloques queda definido de la siguiente manera.
 Contador Parametrizable de N bits           |
 :-------------------------:                 |
 ![](Lab2/Informe/img/p3/counter8b.png)      |
-## Laboraotorio #3 
+## Laboraotorio #3 :floppy_disk:
 Un circuito combinacional es aquel en que las salidas solamente dependen combinaciones de la entradas y no del tiempo. Esta característica hace que los sistemas combinacionales sean en general rápidos, ya que no requieren ningún tipo de sincronización con se˜nales de reloj. En sistemas digitales complejos, como los microprocesadores, los circuitos de lógica combinacional juegan un papel fundamental. Es por esto que en este laboratorio se realizará el dise˜no de una Unidad Lógico-Aritmética (ALU), componente esencial en la etapas de ejecución de cualquier microprocesador moderno. La ALU es la unidad encargada de la ejecución de las instrucciones aritméticas y lógicas en un procesador. Dichas instrucciones requieren tiempos de ejecución cortos, para tener máximo desempe˜no en el procesador y es por esta razón por la que en general se requiere de una lógica combinacional en su implementación. En este laboratorio el estudiante aplicará los conceptos de lógica combinacional en el dise˜no de circuitos digitales lógicos y aritméticos con un lenguaje de descripción de hardware. Además, se abordarán asuntos de tiempo relacionados con lógica combinacional, como lo son los tiempos de propagación y contaminación así como la ruta crítica.
 
 ### Experimento #1: 
@@ -64,7 +64,7 @@ ALU (Interior)                              | ALU (conectada)
 ![](Lab3/Informe/img/nivel31.png)           |![](Lab3/Informe/img/nivel32.png)
 
 ### Experimento #2: 
-## Laboratorio #4 
+## Laboratorio #4 :tv:
 Un circuito secuencial es aquel en que las salidas dependen tanto de las combinaciones de la entradas y del tiempo. Esta característica hace que los sistemas secuenciales sean poderosos en tareas que involucran tiempo, a la vez que representan un mayor grado de complejidad que los combinacionales. En sistemas digitales complejos, como los microprocesadores y controladores de dispositivos externos, los circuitos de lógica secuencial juegan un papel fundamental. La lógica secuencial, al tomar el cuenta el tiempo, ha sido utilizada además para la creación de controladores de diferentes dispositivos en los computadores modernos. Cada componente de hardware que  se anexa a un computador tiene su protocolo para configuración y uso. Uno de los dispositivos más comunes anexados a un computador es el dispositivo de visualización, como es el caso de un monitor. Existen diferentes tecnologías y protocolos de configuración de monitores. Para este laboratorio se trabajará con monitores que trabajan con una interfaz VGA (Video Graphics Array) en un resolución de 640x480 pixeles. En este laboratorio se aplicarán los conceptos de dise˜no digital secuencial, en el dise˜no de una aplicación manejada por una máquina de estados finitos, así como un controlador para un monitor VGA, que eventualmente podría ser usado por un computador para la visualización de información. Adicionalmente, se implementará una aplicación.
 
 #### Controlador VGA
@@ -80,4 +80,4 @@ Los controles de la misma son:
     Key1: seleccionar la casilla y jugar
     Key2: realizar un reset al juego
 ```
-## Proyecto 
+## Proyecto 
