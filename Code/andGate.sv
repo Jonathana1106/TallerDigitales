@@ -1,0 +1,13 @@
+module andGate #(parameter N = 4) (input [N-1:0] A, B, output reg [N-1:0] resultado, output bit V, C);
+	
+	assign V = 0;
+	assign C = 0;
+	reg [N:0] i;	
+	
+	always_comb  begin
+		for(i = 0; i < N; i = i + 1) begin
+			resultado[i] = A[i] && B[i];
+		end
+	end
+	
+endmodule 
